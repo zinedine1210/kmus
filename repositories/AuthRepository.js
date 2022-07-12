@@ -9,7 +9,7 @@ class AuthRepository {
             data
         )
         .then((response) => {
-            console.log(cbor.decode(reponse.data));
+            // console.log(cbor.decode(reponse.data));
             return response.data;
         })
         .catch((error) => {

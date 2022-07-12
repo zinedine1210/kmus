@@ -105,11 +105,21 @@ export default function Home() {
       
     }
     AuthRepository.postRegister(data).then(res => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Pendaftaran Berhasil',
-        text: 'Silahkan periksa email anda'
-      })
+      console.log(res);
+      if(res.response?.status == 400){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Terjadi Kesalahan'
+        })
+      }else{
+        Swal.fire({
+          icon: 'success',
+          title: 'Pendaftaran Berhasil',
+          text: 'Silahkan periksa email anda'
+        })
+
+      }
     })
   }
 
