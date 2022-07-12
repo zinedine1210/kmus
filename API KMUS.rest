@@ -1,0 +1,20 @@
+### REGISTER MOBILE
+POST https://adm.kmus.org/kmus-service/auth-public/register HTTP/1.1
+content-type: application/cbor
+regis: {"email":"persada98172@gmail.com", "hp":"0852032921", "no_ktp":"02921012901", "nama":"Tes Nama", "tempat":"Jakarta", "tempat":"Jakarta", "tgl_lhr":"2022-03-04", "pekerjaan":"Petani", "ibu":"Tes Nama Ibu", "sumber_dana":"asa", "alamat":"asa"}
+
+### LOGIN MOBILE ACCOUNT
+POST https://adm.kmus.org/kmus-service/auth/login HTTP/1.1
+content-type: application/cbor
+us: {"user":"charly.gnusa@gmail.com","pass":"admin123"}
+
+### LOGOUT
+POST https://adm.kmus.org/kmus-service/auth/logout HTTP/1.1
+content-type: application/cbor
+XA: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiY2hhcmx5LmdudXNhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTY1NTVkODJiZjUwZDIyNjQxZDIxYjQ5NTE2MjY1MWJkNmYwZWNlOSIsInRpbWUiOjE2NDY2OTIzNDUuMTQ5MjI2fQ.cws9aB1BWSMq2teowjj6O-3ocI_8nqbgvNhHyJkEfs4
+
+### CHECK STATUS TOKEN AUTH
+GET https://adm.kmus.org/kmus-service/auth/status HTTP/1.1
+content-type: application/cbor
+XA: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiY2hhcmx5LmdudXNhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTY1NTVkODJiZjUwZDIyNjQxZDIxYjQ5NTE2MjY1MWJkNmYwZWNlOSIsInRpbWUiOjE2NDY2OTIzNDUuMTQ5MjI2fQ.cws9aB1BWSMq2teowjj6O-3ocI_8nqbgvNhHyJkEfs4
+param: user

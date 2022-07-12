@@ -1,0 +1,129 @@
+{
+    "judulsyarat":"Syarat untuk menjadi Anggota Koperasi:",
+    "syarat":[
+        {"text":"Warga Negara Indonesia;"},
+        {"text":"Mempunyai kemampuan penuh untuk melakukan tindakan hukum (dewasa dan tidak dalam perwakilan dan sebagainya);"},
+        {"text":"Bertempat tinggal di seluruh wilayah Republik Indonesia;"},
+        {"text":"Telah menyatakan kesanggupan tertulis untuk melunasi simpanan pokok dan simpanan wajib yang besarnya berdasarkan hasil Keputusan Rapat Anggota;"},
+        {"text":"Telah menyetujui isi Anggaran Dasar dan ketentuan yang berlaku;"},
+        {"text":"Tidak diputuskan bersalah oleh peradilan di Indonesia melakukan perbuatan suatu pidana kejahatan dengan hukuman minimal 5 (lima) tahun atau tindak pidana narkotika dan obat-obat terlarang;"},
+        {"text":"Tidak menunggak selama 6 (enam) kali atas kewajiban membayar simpanan wajib;"},
+        {"text":"Keanggotaan Koperasi diperoleh jika seluruh persyaratan telah dipenuhi, simpanan pokok telah dilunasi dan bersangkutan didaftar dan telah menandatangani Buku Daftar Anggota Koperasi;"},
+        {"text":"Koperasi secara terbuka dapat menerima Anggota lain sebagai Anggota luar biasa;"},
+        {"text":"Tata cara penerimaan Anggota sebagaimana dimaksud ayat (4) diatur dalam Anggaran Rumah Tangga;"}
+    ],
+    "judulkewajiban":"Setiap Anggota mempunyai kewajiban:",
+    "kewajiban":[
+        {"text":"Mematuhi Anggaran Dasar, Anggaran Rumah Tangga, peraturan --- lainnya dan Keputusan Rapat Anggota;"},
+        {"text":"Menghadiri Rapat Anggota;"},
+        {"text":"Berpartisipasi aktif dalam kegiatan usaha Koperasi;"},
+        {"text":"Turut mengawasi pengelolaan organisasi dan usaha Koperasi;"},
+        {"text":"Melunasi Simpanan Pokok dan membayar Simpanan Wajib secara - rutin yang besaran dan tata caranya ditetapkan dalam Anggaran --- Rumah Tangga; dan"},
+        {"text":"Mengembangkan dan memelihara prinsip Koperasi sebagaimana."}
+    ],
+    "judulhak":"Setiap Anggota berhak:",
+    "hak":[
+        {"text":"Menghadiri, menyatakan pendapat, dan memberikan suara dalam-- Rapat Anggota;"},
+        {"text":"Mengemukakan pendapat atau saran kepada Pengawas dan Pengurus di luar Rapat Anggota baik diminta atau tidak;"},
+        {"text":"Memilih Pengawas atau Pengurus sesuai persyaratan yang ditetapkan dalam Anggaran Dasar;"},
+        {"text":"Meminta diadakan Rapat Anggota menurut ketentuan dalam Anggaran dasar;"},
+        {"text":"Mendapat pelayanan kegiatan usaha yang telah disediakan oleh Koperasi;"},
+        {"text":"Mendapat keterangan mengenai perkembangan Koperasi sesuai dengan ketentuan dalam Anggaran Dasar; dan"},
+        {"text":"Mendapatkan bagian dari sisa hasil usaha Koperasi sebanding dengan jumlah simpanan pokok dan simpanan wajib di Koperasi dan transaksi usaha yang dilakukan oleh masing-masing Anggota dengan Koperasi;"},
+        {"text":"Mendapatkan pengembalian simpanan–simpanan yang menjadi miliknya apabila keluar atau berakhir dari keanggotaan, dan atau sisa hasil penyelesaian Koperasi apabila Koperasi membubarkan diri atau dibubarkan oleh pemerintah."}
+    ],
+    "judulpembayaran":"Rekening untuk pembayaran Sisa Hasil Usaha (SHU)",
+    "judulkonfirmasi":"Dengan ini mengajukan permohonan menjadi Anggota Koperasi dan bersedia membayar simpanan pokok dan wajib di Koperasi sebagaimana yang telah ditetapkan yaitu:",
+    "listkonfirmasi":[
+        {"text":"Simpanan Pokok, sebesar Rp. 200.000,- diserahkan pada saat mendaftar menjadi anggota koperasi. Dengan pembayaran secara : ",
+        "italic":"tunai/diangsur 5 kali"},
+        {"text":"Simpanan Wajib, sebesar Rp. 50.000,- setiap bulan, dengan metode pembayaran : 1 bulan sekali/3 bulan sekali/ 6 bulan sekali",
+        "italic":"1 bulan sekali/3 bulan sekali/ 6 bulan sekali"},
+        {"text":"Simpanan Sukarela sebesar Rp......."},
+        {"text":"Memahami dan mematuhi AD/ART Koperasi"},
+        {"text":"Untuk fasilitas pinjaman, diberikan jika masa keanggotaan telah melewati 3 bulan, syarat dan ketentuan berlaku"}
+    ],
+    "cek":"Saya menyatakan sanggup memenuhi segala kewajiban sebagai anggota koperasi dan akan mematuhi segala ketentuan dan aturan yang telah diatur dalam AD/ART KOPERASI JASA MITRA USAHA SENTOSA",
+    "judulform":"Formulir Pendaftaran Anggota",
+    "form":[
+        {
+            "text":"Nama",
+            "placeholder":"Silahkan isi nama anda",
+            "helper":"Nama harus diisi"
+        },
+        {
+            "text":"Alamat",
+            "placeholder":"Masukan alamat anda",
+            "helper":"Alamat harus diisi"
+        },
+        {
+            "text":"KTP / SIM",
+            "placeholder":"Masukan nomer KTP atau SIM",
+            "helper":"KTP / SIM harus diisi, contoh: 321108xxxxxxxxxx"
+        },
+        {
+            "text":"Tempat",
+            "placeholder":"Silahkan pilih tempat"
+        },
+        {
+            "text":"Tanggal Lahir",
+            "placeholder":"Isi tanggal lahir"
+        },
+        {
+            "text":"Pekerjaan",
+            "placeholder":"Masukan Pekerjaan anda",
+            "helper":"Pekerjaan harus diisi"
+        },
+        {
+            "text":"No. Telepon / HP",
+            "placeholder":"Masukan No. Telepon / HP anda",
+            "helper":"Masukan no. telepon harus diisi"
+        },
+        {
+            "text":"Email",
+            "placeholder":"Isi dengan email yang valid, contoh: contoh@gmail.com",
+            "helper":"Email harus diisi"
+        },
+        {
+            "text":"Nama ibu kandung",
+            "placeholder":"Masukan nama ibu kandung",
+            "helper":"Nama ibu kandung harus diisi"
+        },
+        {
+            "text":"Sumber Dana",
+            "placeholder":"Isi sumber dana",
+            "helper":"Sumber dana harus diisi"
+        },
+        {
+            "text":"Alamat Lengkap",
+            "placeholder":"Masukan alamat lengkap anda",
+            "helper":"Alamat lengkap harus diisi"
+        },
+        {
+            "text":"No. Rekening",
+            "placeholder":"Masukan no. rekening anda",
+            "helper":"No. Rekening harus diisi"
+        },
+        {
+            "text":"Nama Rekening",
+            "placeholder":"Masukan Nama rekening anda",
+            "helper":"Nama Rekening harus diisi"
+        },
+        {
+            "text":"Bank",
+            "placeholder":"Pilih nama bank"
+        }
+    ],
+    "sebelumnya":"Sebelumnya",
+    "selanjutnya":"Selanjutnya",
+    "syaratanggota":"Syarat Menjadi Anggota",
+    "anggotadesk":"Informasi Persyaratan",
+    "kewajibananggota":"Kewajiban dan Hak Anggota",
+    "kewajibandesk":"Informasi Kewajiban dan Hak setiap Anggota",
+    "formulir":"Pendaftaran",
+    "konfirmasi":"Pembayaran",
+    "konfirmasidesk":"Pembayaran dan konfirmasi Persetujuan",
+    "selesai":"Selesai",
+    "selesaidesk":"Pendaftaran selesai",
+    "maaf":"Maaf, kamu harus menyetujui persyaratan yang ada"
+}

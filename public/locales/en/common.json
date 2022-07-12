@@ -1,0 +1,127 @@
+{
+    "judulsyarat":"Requirements to become a Cooperative Member:",
+    "syarat":[
+        {"text":"Indonesian citizens;"},
+        {"text":"Have full ability to take legal action (adult and not in representation and so on);"},
+        {"text":"Domiciled throughout the territory of the Republic of Indonesia;"},
+        {"text":"Has stated the written ability to pay off the principal savings and mandatory savings, the amount of which is based on the resolutions of the Member's Meeting;"},
+        {"text":"Have approved the contents of the Articles of Association and the applicable provisions;"},
+        {"text":"Not found guilty by the courts in Indonesia of committing a crime with a minimum sentence of 5 (five) years or a crime of narcotics and illegal drugs;"},
+        {"text":"Not in arrears for 6 (six) times on the obligation to pay mandatory savings;"},
+        {"text":"Cooperative membership is obtained if all requirements have been met, the principal savings have been paid off and the person concerned is registered and has signed the Cooperative Member List Book;"},
+        {"text":"Cooperatives can openly accept other Members as extraordinary Members;"},
+        {"text":"The procedure for accepting Members as referred to in paragraph (4) is regulated in the Bylaws;"}
+    ],
+    "judulkewajiban":"Each Member has the obligation to:",
+    "kewajiban":[
+        {"text":"Comply with the Articles of Association, Bylaws, other regulations and the Resolutions of the Meeting of Members;"},
+        {"text":"Attending Members' Meeting;"},
+        {"text":"Actively participate in Cooperative business activities;"},
+        {"text":"Participate in supervising the organization and business management of Cooperatives;"},
+        {"text":"Pay off the Principal Savings and pay the Mandatory Savings on a regular basis, the amount and procedure of which is determined in the Household Budget; and"},
+        {"text":"Develop and maintain the cooperative principles as."}
+    ],
+    "judulhak":"Each Member is entitled to:",
+    "hak":[
+        {"text":"Attend, express opinions, and vote in-- Member Meetings;"},
+        {"text":"Express opinions or suggestions to the Supervisors and Management outside the Members' Meeting, whether requested or not;"},
+        {"text":"Selecting Supervisors or Management according to the requirements set out in the Articles of Association;"},
+        {"text":"Request a Membership Meeting to be held according to the provisions in the Articles of Association;"},
+        {"text":"Get services for business activities that have been provided by the Cooperative;"},
+        {"text":"Receive information regarding the development of the Cooperative in accordance with the provisions in the Articles of Association; and"},
+        {"text":"Get a share of the remaining operating results of the Cooperative in proportion to the amount of principal savings and mandatory savings in the Cooperative and business transactions carried out by each Member with the Cooperative;"},
+        {"text":"Get a return of deposits that belong to him if he leaves or ends his membership, and or the remaining results of the settlement of the Cooperative if the Cooperative dissolves itself or is dissolved by the government."}
+    ],
+    "judulpembayaran":"Rekening for payment of Remaining Operating Results (SHU)",
+    "judulkonfirmasi":"Hereby submits an application to become a member of a cooperative and is willing to pay the principal and mandatory savings in the cooperative as stipulated, namely:",
+    "listkonfirmasi":[
+        {"text":"Principal Savings, amounting to Rp. 200,000, - submitted at the time of registering to become a member of the cooperative. With payment: ","italic":"cash / installments 5 times"},
+        {"text":"Mandatory Savings, amounting to Rp. 50.000,- every month, with payment method: ","italic":"once a month/3 months/ once every 6 months"},
+        {"text":"Voluntary Deposit of Rp......."},
+        {"text":"Understand and comply with the Cooperative's AD/ART"},
+        {"text":"For loan facilities, given if the membership period has passed 3 months, terms and conditions apply"}
+    ],
+    "cek":"I declare that I am able to fulfill all obligations as a member of the cooperative and will comply with all the provisions and rules set forth in this information AD/ART KOPERASI JASA MITRA USAHA SENTOSA",
+    "judulform":"Member Registration Form",
+    "form":[
+        {
+            "text":"Name",
+            "placeholder":"Please fill in your name",
+            "helper":"Name is required"
+        },
+        {
+            "text":"Address",
+            "placeholder":"Please fill in your address",
+            "helper":"Alamat is required"
+        },
+        {
+            "text":"KTP / SIM",
+            "placeholder":"Please fill in your nomer KTP atau SIM",
+            "helper":"KTP / SIM is required, example: 321108xxxxxxxxxx"
+        },
+        {
+            "text":"Place of birth",
+            "placeholder":"Please fill in your place"
+        },
+        {
+            "text":"Date of birth",
+            "placeholder":"Please fill in your date"
+        },
+        {
+            "text":"Profession",
+            "placeholder":"Please fill in your profession",
+            "helper":"Profession is required"
+        },
+        {
+            "text":"No. Telephone / HP",
+            "placeholder":"Please fill in your no. telephone / HP",
+            "helper":"No. telepon is required"
+        },
+        {
+            "text":"Email",
+            "placeholder":"Fill in with a valid email, example: example@gmail.com",
+            "helper":"Email is required"
+        },
+        {
+            "text":"Mother's name",
+            "placeholder":"Please fill in your Mother's name",
+            "helper":"Mother's name is required"
+        },
+        {
+            "text":"Source of funds",
+            "placeholder":"Please fill in your Source of funds",
+            "helper":"Source of funds is required"
+        },
+        {
+            "text":"Complete Address",
+            "placeholder":"Please fill in your complete address",
+            "helper":"Complete address is required"
+        },
+        {
+            "text":"No. Rekening",
+            "placeholder":"Please fill in your no. rekening",
+            "helper":"No. Rekening is required"
+        },
+        {
+            "text":"Rekening Name",
+            "placeholder":"Please fill in your rekening name",
+            "helper":"Rekening name is required"
+        },
+        {
+            "text":"Bank",
+            "placeholder":"Choose bank name"
+        }
+    ],
+    "sebelumnya":"Previous",
+    "selanjutnya":"Next",
+    "syaratanggota":"Terms of Being a Member",
+    "anggotadesk":"Requirements Information",
+    "kewajibananggota":"Member's Obligations and Rights",
+    "kewajibandesk":"Information on the Obligations and Rights of each Member",
+    "formulir":"Registration",
+    "konfirmasi":"Payment",
+    "konfirmasidesk":"Payment and confirmation of Approval",
+    "selesai":"Done",
+    "selesaidesk":"Registration complete",
+    "maaf":"Sorry, you have to agree to the terms"
+}

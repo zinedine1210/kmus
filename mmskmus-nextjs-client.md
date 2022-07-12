@@ -1,1 +1,0 @@
-# mmskmus-nextjs-client
