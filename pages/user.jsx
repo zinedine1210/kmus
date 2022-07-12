@@ -1,10 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 import Seo from "../public/seo"
+import AuthRepository from "../repositories/AuthRepository"
 
 export default function User() {
     const [active, setActive] = useState(false)
+    const Router = useRouter()
     const navbar = () => {
         if(active){
             setActive(false)
@@ -12,6 +15,18 @@ export default function User() {
             setActive(true)
         }
     }
+
+    useEffect(() => {
+        const getxa = localStorage.getItem("xa")
+        AuthRepository.getStatus({XA:getxa, param:"user"}).then(res => {
+            if(res.status < 0){
+                localStorage.removeItem("xa")
+                Router.push("/")
+            }else{
+                Router.push("/user")
+            }
+        })
+    }, [])
   return (
     <>
         <Seo 

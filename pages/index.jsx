@@ -32,7 +32,6 @@ export default function Home() {
       let obj = {
         [target]:value
       }
-  
       setData(Object.assign(data, obj))
     }else{
       let obj = {
@@ -40,10 +39,20 @@ export default function Home() {
       }
       setData(obj)
     }
-    console.log(data);
   }
 
+
+
   useEffect(() => {
+    const getXa = localStorage.getItem("xa")
+    AuthRepository.getStatus({XA:getXa, param:"user"}).then(res => {
+      if(res.status < 0){
+        router.push("/")
+      }else{
+        router.push("/user")
+      }
+    })
+
     axios.get("https://dev.farizdotid.com/api/daerahindonesia/provinsi").then(res => {
       setTempat(res.data.provinsi)
     })
@@ -52,6 +61,8 @@ export default function Home() {
       setBank(res.data)
     })
   }, [])
+
+
 
   const nextStep = (value, lang) => {
     if(value){
@@ -93,8 +104,12 @@ export default function Home() {
       })
       
     }
-    AuthRepository.postRegister({regis:data}).then(res => {
-      console.log(res)
+    AuthRepository.postRegister(data).then(res => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Pendaftaran Berhasil',
+        text: 'Silahkan periksa email anda'
+      })
     })
   }
 

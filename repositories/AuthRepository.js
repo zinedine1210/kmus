@@ -3,15 +3,13 @@ import cbor from 'cbor';
 
 class AuthRepository {
     async postRegister(params) {
+        const data = cbor.encode(params)
         const reponse = await Repository.post(
             `${baseUrl}/auth-public/register`,
-            null,
-            {
-                headers: params
-            }
+            data
         )
         .then((response) => {
-            console.log(response);
+            console.log(cbor.decode(reponse.data));
             return response.data;
         })
         .catch((error) => {
@@ -22,14 +20,15 @@ class AuthRepository {
 
     async postLogin(params) {
         const reponse = await Repository.post(
-            `${baseUrl}/auth/login`,
+            `${baseUrl}/auth-public/login`,
             null,
             {
                 headers: params
             }
         )
         .then((response) => {
-            return response.data;
+            // const data = cbor.decode(response.data)
+            return response;
         })
         .catch((error) => {
             return error;
