@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Seo from "../public/seo"
 import {G} from "../global/global.min.js"
 import AuthRepository from "../repositories/AuthRepository.js";
 import Swal from "sweetalert2";
@@ -80,7 +81,12 @@ export default function Login() {
 	}
 
   return (
-    <section className="h-screen max-h-screen flex items-center justify-center bg-slate-100">
+    <>
+	<Seo 
+	title="Login"
+	description={"Login MMS Koperasi Jasa Mitra Usaha Sentosa"}
+	/>
+	<section className="h-screen max-h-screen flex items-center justify-center bg-slate-100">
 		<div class="bg-white shadow rounded-lg md:mt-0 w-full sm:max-w-screen-sm xl:p-0">
 			<div class="p-6 sm:p-8 lg:p-16 space-y-8">
 				<h2 class="text-2xl lg:text-3xl font-bold text-gray-900">
@@ -103,5 +109,6 @@ export default function Login() {
 			</div>
 		</div >
     </section>
+	</>
   )
 }

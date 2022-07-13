@@ -140,10 +140,13 @@ export default function coba() {
           <div className='lg:flex items-center justify-center'>
               {/* kiri */}
               <div className='h-full lg:h-screen w-full overflow-y-scroll lg:w-1/4 bg-slate-800 px-2 py-2' id='timeline2'>
-                  <div className="mt-2 flex gap-2 items-center">
-                      <span className="w-1/4"><Image src={"/logo.png"} width={80} height={80} quality={50} objectFit="contain" alt="logo" /></span>
+                  <div className="mt-2 mb-5 flex items-center">
+                      <span className="w-1/4 text-center"><Image src={"/logo.png"} width={60} height={60} quality={50} objectFit="contain" alt="logo" /></span>
                       <div className="w-3/4">
-                          <h1 className="text-white text-xl lg:text-xl font-semibold">Koperasi Jasa Mitra Usaha Sentosa</h1>
+                          <h1 className="text-white text-xl font-semibold">Koperasi Jasa Mitra Usaha Sentosa</h1>
+                            <Link href={"/login"}>
+                                <span className="cursor-pointer text-white text-sm border py-1 px-5 rounded-lg lg:hidden">Login</span>
+                            </Link>
                       </div>
                   </div>
 
@@ -181,6 +184,8 @@ export default function coba() {
                           <svg className="w-6 h-6 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
                           Timeline
                       </button>
+
+                      
                   </div>
 
                   <div className={`mt-10 hidden lg:block`} id="navbar">
@@ -337,10 +342,10 @@ export default function coba() {
                           </label>
 
                           <div className="relative">
-                              <label htmlFor="countries" className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                              <label htmlFor="countries2" className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                   <svg className="w-6 h-6 stroke-slate-800 dark:stroke-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
                               </label>
-                              <select id="countries" onChange={(e) => settingsLanguage(e.target.value)} className=" py-2 text-sm rounded-lg block w-full bg-inherit border-none pl-10 pr-7  dark:placeholder-gray-400 dark:text-white text-slate-700 focus:outline-none" placeholder="Bahasa" >
+                              <select id="countries2" onChange={(e) => settingsLanguage(e.target.value)} className=" py-2 text-sm rounded-lg block w-full bg-inherit border-none pl-10 pr-7  dark:placeholder-gray-400 dark:text-white text-slate-700 focus:outline-none" placeholder="Bahasa" >
                                   <option disabled selected>{language == 'id' ? "Indonesia" : "English"}</option>
                                   <option className="font-light text-sm" value={"id"}>Indonesia</option>
                                   <option className="font-light text-sm" value={"en"}>English</option>
