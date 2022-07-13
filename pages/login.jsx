@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import Link from "next/link"
 import {G} from "../global/global.min.js"
 import AuthRepository from "../repositories/AuthRepository.js";
 import Swal from "sweetalert2";
@@ -7,6 +8,17 @@ import Swal from "sweetalert2";
 export default function Login() {
 	const [data, setData] = useState(null)
 	const Router = useRouter()
+
+	useEffect(() => {
+		const getXa = localStorage.getItem("xa")
+		AuthRepository.getStatus({XA:getXa, param:"user"}).then(res => {
+			if(res.status < 0){
+
+			}else{
+				Router.push("/user")
+			}
+		})
+	}, [])
 
 	const handlerSubmit = e => {
 		e.preventDefault()
@@ -28,21 +40,22 @@ export default function Login() {
 
 			AuthRepository.postLogin({"uspw":JSON.stringify(payload)})
 			.then(responseData =>{
-				// console.log(responseData);
-				if(responseData.data.token){
+				if(responseData.hasOwnProperty("data")){
 					// this.setState({errorLogin:false})
 					localStorage.setItem("xa", responseData.data.token);
 					Swal.fire({
 						position: 'top-end',
 						icon: 'success',
-						title: 'Kamu berhasil login',
+						title: 'Berhasil login',
 						showConfirmButton: false,
 						timer: 3000
 					})
-					console.log("sukses login")
 					Router.push('/user');
 				} else {
-					console.log("Email atau Kata Sandi Salah")
+					Swal.fire({
+						icon:"error",
+						title:"Username atau password salah"
+					})
 					// this.handleNotification("error", "Email atau Kata Sandi salah!")
 				}
 			})
@@ -63,7 +76,6 @@ export default function Login() {
 			}
 			setData(obj)
 		}
-		console.log(data);
 
 	}
 
@@ -85,7 +97,7 @@ export default function Login() {
 					</div>
 					<button type="submit" class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-base px-5 py-3 w-full sm:w-auto text-center">Masuk akunmu</button>
 					<div class="text-sm font-medium text-gray-500">
-						Belum daftar? <a href="/" class="text-teal-500 hover:underline ml-1">Buat akun</a>
+						Belum daftar? <Link href={"/"}><span className="cursor-pointer text-slate-600">Buat akun</span></Link>
 					</div>
 				</form>
 			</div>
