@@ -1,8 +1,8 @@
 {
   "name": "Koperasi Jasa Mitra Usaha",
-  "short_name": "JMUS App",
+  "short_name": "MMS KMUS App",
   "theme_color": "#ffffff",
-  "background_color": "#4B4A54",
+  "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
