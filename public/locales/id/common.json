@@ -35,10 +35,8 @@
     "judulpembayaran":"Rekening untuk pembayaran Sisa Hasil Usaha (SHU)",
     "judulkonfirmasi":"Dengan ini mengajukan permohonan menjadi Anggota Koperasi dan bersedia membayar simpanan pokok dan wajib di Koperasi sebagaimana yang telah ditetapkan yaitu:",
     "listkonfirmasi":[
-        {"text":"Simpanan Pokok, sebesar Rp. 200.000,- diserahkan pada saat mendaftar menjadi anggota koperasi. Dengan pembayaran secara : ",
-        "italic":"tunai/diangsur 5 kali"},
-        {"text":"Simpanan Wajib, sebesar Rp. 50.000,- setiap bulan, dengan metode pembayaran : 1 bulan sekali/3 bulan sekali/ 6 bulan sekali",
-        "italic":"1 bulan sekali/3 bulan sekali/ 6 bulan sekali"},
+        {"text":"Simpanan Pokok, sebesar Rp. 200.000,- diserahkan pada saat mendaftar menjadi anggota koperasi."},
+        {"text":"Simpanan Wajib, sebesar Rp. 50.000,- setiap bulan."},
         {"text":"Simpanan Sukarela sebesar Rp......."},
         {"text":"Memahami dan mematuhi AD/ART Koperasi"},
         {"text":"Untuk fasilitas pinjaman, diberikan jika masa keanggotaan telah melewati 3 bulan, syarat dan ketentuan berlaku"}
@@ -126,5 +124,7 @@
     "selesai":"Selesai",
     "selesaidesk":"Pendaftaran selesai",
     "maaf":"Maaf, kamu harus menyetujui persyaratan yang ada",
-    "home":"Beranda"
+    "home":"Beranda",
+    "titleselesai":"Pendaftaran Berhasil",
+    "deskripsiselesai":"Kami telah memverifikasi permintaan anda untuk bergabung ke Koperasi Jasa Mitra Usaha Sentosa. Silahkan periksa email anda, Kami telah mengirim username dan password untuk anda login"
 }

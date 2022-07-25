@@ -14,11 +14,13 @@
     "cbor": "^8.1.0",
     "moment": "^2.29.4",
     "next": "12.2.2",
+    "next-auth": "^4.10.2",
     "next-i18next": "^11.0.0",
     "next-pwa": "^5.5.4",
     "next-themes": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-webcam": "^7.0.1",
     "sharp": "^0.30.7",
     "sweetalert2": "^11.4.20"
   },

@@ -18,3 +18,18 @@ GET https://adm.kmus.org/kmus-service/auth/status HTTP/1.1
 content-type: application/cbor
 XA: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiY2hhcmx5LmdudXNhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTY1NTVkODJiZjUwZDIyNjQxZDIxYjQ5NTE2MjY1MWJkNmYwZWNlOSIsInRpbWUiOjE2NDY2OTIzNDUuMTQ5MjI2fQ.cws9aB1BWSMq2teowjj6O-3ocI_8nqbgvNhHyJkEfs4
 param: user
+
+### GET DATA USER SELF
+GET https://adm.kmus.org/kmus-service/baseuserpublic HTTP/1.1
+content-type: application/cbor
+XA:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoicGVyc2FkYTk4MTcyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiZmFhMzJjYjU0M2JmM2FkNzcwZTM1ZTMzOTIyZTFmYjc5MTU5MTI2NSJ9.8RAj68RCQWWbgwLidkgZp8-HpntoFkjYZBrkwUHrAzc
+
+
+### UPDATE DATA USER SELF
+PUT https://adm.kmus.org/kmus-service/baseuserpublic HTTP/1.1
+content-type: application/cbor
+XA:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoicGVyc2FkYTk4MTcyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiZmFhMzJjYjU0M2JmM2FkNzcwZTM1ZTMzOTIyZTFmYjc5MTU5MTI2NSJ9.8RAj68RCQWWbgwLidkgZp8-HpntoFkjYZBrkwUHrAzc
+
+{
+    "hp":"1234"
+}

@@ -5,12 +5,17 @@ class AuthRepository {
     async postRegister(params) {
         const data = cbor.encode(params)
         const reponse = await Repository.post(
-            `${baseUrl}/auth-public/register`,
-            data
+            `${baseUrl}/auth/register`,
+            data,
+            {
+                headers: params,
+                responseType: "arraybuffer"
+            }
         )
         .then((response) => {
             // console.log(cbor.decode(reponse.data));
-            return response.data;
+            const data = cbor.decode(response.data)
+            return data;
         })
         .catch((error) => {
             return error;
@@ -20,15 +25,16 @@ class AuthRepository {
 
     async postLogin(params) {
         const reponse = await Repository.post(
-            `${baseUrl}/auth-public/login`,
+            `${baseUrl}/auth/login`,
             null,
             {
-                headers: params
+                headers: params,
+                responseType: "arraybuffer"
             }
         )
         .then((response) => {
-            // const data = cbor.decode(response.data)
-            return response;
+            const data = cbor.decode(response.data)
+            return data;
         })
         .catch((error) => {
             return error;
@@ -60,6 +66,44 @@ class AuthRepository {
             `${baseUrl}/auth/status`,
             { 
                 headers: xa, 
+                responseType: "arraybuffer" 
+            }
+        )
+        .then((response) => {
+            let result = cbor.decode(response.data)
+            return result;
+        })
+        .catch((error) => {
+            let result = cbor.decode(error.response.data)
+            return result;
+        });
+        return reponse;
+    }
+
+    async getDataUser(xa){
+        const reponse = await Repository.get(
+            `${baseUrl}/baseuserpublic`,
+            { 
+                headers: xa, 
+                responseType: "arraybuffer" 
+            }
+        )
+        .then((response) => {
+            let result = cbor.decode(response.data)
+            return result;
+        })
+        .catch((error) => {
+            let result = cbor.decode(error.response.data)
+            return result;
+        });
+        return reponse;
+    }
+    async updateDataUser(params){
+        const data = cbor.encode(params.data)
+        const reponse = await Repository.get(
+            `${baseUrl}/baseuserpublic/${data}`,
+            { 
+                headers: params.xa, 
                 responseType: "arraybuffer" 
             }
         )

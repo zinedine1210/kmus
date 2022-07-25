@@ -35,12 +35,13 @@
     "judulpembayaran":"Rekening for payment of Remaining Operating Results (SHU)",
     "judulkonfirmasi":"Hereby submits an application to become a member of a cooperative and is willing to pay the principal and mandatory savings in the cooperative as stipulated, namely:",
     "listkonfirmasi":[
-        {"text":"Principal Savings, amounting to Rp. 200,000, - submitted at the time of registering to become a member of the cooperative. With payment: ","italic":"cash / installments 5 times"},
-        {"text":"Mandatory Savings, amounting to Rp. 50.000,- every month, with payment method: ","italic":"once a month/3 months/ once every 6 months"},
+        {"text":"Principal Savings, amounting to Rp. 200,000,- submitted at the time of registering to become a member of the cooperative."},
+        {"text":"Mandatory Savings, amounting to Rp. 50.000,- every month."},
         {"text":"Voluntary Deposit of Rp......."},
         {"text":"Understand and comply with the Cooperative's AD/ART"},
         {"text":"For loan facilities, given if the membership period has passed 3 months, terms and conditions apply"}
     ],
+    
     "cek":"I declare that I am able to fulfill all obligations as a member of the cooperative and will comply with all the provisions and rules set forth in this information AD/ART KOPERASI JASA MITRA USAHA SENTOSA",
     "judulform":"Member Registration Form",
     "form":[
@@ -124,5 +125,8 @@
     "selesai":"Done",
     "selesaidesk":"Registration complete",
     "maaf":"Sorry, you have to agree to the terms",
-    "home":"Home"
+    "home":"Home",
+    "titleselesai":"Registration Complete",
+    "deskripsiselesai":"We have verified your request to join the Sentosa Business Partner Service Cooperative. Please check your email, we have sent your username and password for you to login"
+
 }
