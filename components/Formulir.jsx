@@ -10,7 +10,7 @@ export default function Formulir({t}) {
     const [data, setData] = useState(null)
     const [tempat, setTempat] = useState(null)
     const [bank, setBank] = useState(null)
-    const [ktp, setKtp] = useState(null)
+    const [ktp, setKtp] = useState(null)    
 
     useEffect(() => {
         axios.get("https://dev.farizdotid.com/api/daerahindonesia/provinsi").then(res => {
@@ -42,7 +42,7 @@ export default function Formulir({t}) {
         e.preventDefault()
 
         const getXa = JSON.parse(localStorage.getItem("xa"))
-        AuthRepository.updateDataUser({xa:getXa, data:value}).then(res => {
+        AuthRepository.updateDataUser({XA:getXa, data:value}).then(res => {
             console.log(res)
         })
     }
@@ -91,7 +91,7 @@ export default function Formulir({t}) {
                 <Option value={2}>SIM</Option>
             </Select>
 
-            <label htmlFor="tempat" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">KTP/SIM</label>
+            <label htmlFor="no_ktp_type" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">KTP/SIM</label>
 
             </div>
             <div className="relative border-2 rounded-lg border-gray-300 w-11/12">

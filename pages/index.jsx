@@ -104,8 +104,6 @@ export default function Home() {
     }
 
     setData(Object.assign(data, obj))
-    console.log(data);
-
 
     AuthRepository.postRegister(data).then(res => {
       if(res.response?.status == 400){

@@ -30,7 +30,7 @@ a {
 
 @layer utilities{
   .title{
-    @apply text-sm md:text-xl xl:text-2xl text-zinc-800 font-semibold mb-5 dark:text-white
+    @apply text-xl md:text-xl xl:text-2xl text-zinc-800 font-semibold mb-5 dark:text-white
   }
   .btn-main {
     @apply py-2 px-5 font-semibold text-white bg-gradient-to-r from-slate-700 to-slate-400 rounded-lg

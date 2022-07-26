@@ -5,18 +5,20 @@ import Link from "next/link"
 
 export default function Dashboard() {
     const [gambar, setGambar] = useState(null)
-    const [active, setActive] = useState(1)
+    const [active, setActive] = useState(3)
     const [status, setStatus] = useState(null)
-    const {t} = useTranslation("common")
     const [allow, setAllow] = useState(false)
+
+
+    const {t} = useTranslation("common")
 
     useEffect(() => {
 
-        const getXa = localStorage.getItem("xa")
+        const getXa = JSON.parse(localStorage.getItem("xa"))
         // Cek status user premember atau member
         AuthRepository.getDataUser({XA: getXa}).then(res => {
             // setStatus(res.data.status)
-            console.log("", res.data);
+            console.log("asas", res.data);
         })
     
     },[])
@@ -58,26 +60,35 @@ export default function Dashboard() {
         </div>
         :
         <div className="w-full">
-            {/* <div className="flex items-center justify-center">
-                <div className="flex items-center justify-center gap-2">
-                    <span className={`${active == 1?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl `}>1</span>
-                    <p className="text-sm font-semibold capitalize">Lengkapi data diri anda</p>
-                    <hr className="border border-zinc-300 w-10 lg:w-20"/>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                    <span className={`${active == 2?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl `}>2</span>
-                    <p className="text-sm font-semibold capitalize">Upload Foto Anda</p>
-                    <hr className="border border-zinc-300 w-10 lg:w-20"/>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                    <span className={`${active == 3?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl `}>3</span>
-                    <div className="flex items-center gap-2 justify-center">
-                        <p className="text-sm font-semibold capitalize inline">Verifikasi dari Admin</p>
-                    </div>
-                </div>
-            </div> */}
 
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center lg:hidden gap-5">
+                <div>
+                    <div className="flex items-center justify-center">
+                        <span className={`${active == 1?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl`}>
+                            1
+                        </span>
+                    </div>
+                    <p className="font-semibold text-[16px] text-center mt-2">Lengkapi Data Diri Anda</p>
+                </div>
+                <div>
+                    <div className="flex items-center justify-center">
+                        <span className={`${active == 2?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl`}>
+                            2
+                        </span>
+                    </div>
+                    <p className="font-semibold text-[16px] text-center mt-2">Upload Foto Anda</p>
+                </div>
+                <div>
+                    <div className="flex items-center justify-center">
+                        <span className={`${active == 3?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl`}>
+                            3
+                        </span>
+                    </div>
+                    <p className="font-semibold text-[16px] text-center mt-2">Verifikasi Oleh Admin</p>
+                </div>
+            </div>
+
+            <div className="lg:flex items-center justify-center hidden">
                 <div className="flex items-center gap-2">
                     <span className={`${active == 1?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl`}>
                         1
@@ -116,20 +127,25 @@ export default function Dashboard() {
             {/* STEP 2 */}
             <div className={`${active == 2?"block":"hidden"} bg-white w-full rounded-md mt-5 p-10`}>
                 <h1 className="title">Upload Foto</h1>
-                <div className="">
-                    <h1 className="text-gray-600 text-xl font-semibold">Foto Diri</h1>
-                    {console.log(gambar)}
+                <div className="mt-10">
+                    <h1 className="text-gray-600 text-sm lg:text-[16px]">Foto Anda dengan KTP</h1>
                     {
                         gambar ?
-                        <img src={gambar} alt="" />
+                        <div className="relative w-full border border-dashed border-gray-500 mx-auto">
+                            <img src={gambar} alt={gambar} className="text-center mx-auto"/>
+                            <button onClick={() => setGambar(null)} className="absolute top-10 right-10 w-12 h-12 rounded-full shadow-sm flex items-center justify-center bg-gray-200">
+                                <svg class="w-7  h-7 stroke-red-500 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
+                        </div>
                         :
-                        <button onClick={() => setAllow(true)} data-modal-toggle="photo" className="w-1/2 h-[500px] border border-dashed border-gray-500 rounded-xl flex items-center justify-center">
-                            <h1>Buka Kamera</h1>
+                        <button onClick={() => document.getElementById("photo").classList.toggle("hidden")} className="w-full lg:w-1/2 h-[500px] border border-dashed border-gray-500 rounded-xl flex items-center justify-center">
+                            <h1 className="font-semibold text-xl text-gray-500 uppercase">Buka Kamera</h1>
                         </button>
                     }
-
-                    <div id="photo" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-                        <section className="relative bg-white">
+                </div>
+                {allow ? 
+                    <div className="absolute h-screen top-0 flex items-center justify-center z-40 hidden" id="photo">
+                        <section className="relative">
                             <Webcam
                                 audio={false}
                                 height={720}
@@ -149,15 +165,15 @@ export default function Dashboard() {
                                         setGambar(imageSrc)
                                     }}
                                     ></button>
-                                    <button data-modal-toggle="photo" className="absolute top-10 right-10">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <button onClick={() => document.getElementById("photo").classList.toggle("hidden")} className="absolute top-10 right-10">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                     </button>
                                 </>
                                 )}
                             </Webcam>
                         </section>
                     </div>
-                </div>
+                :""}
                 <button className="btn-secondary mr-2 mt-5" onClick={() => setActive(active - 1)}>Prev</button>
                 <button className="btn-main" onClick={() => setActive(active + 1)}>Next</button>
             </div>

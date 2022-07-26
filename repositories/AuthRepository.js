@@ -110,9 +110,9 @@ class AuthRepository {
             // return response
         })
         .catch((error) => {
-            let result = cbor.decode(error.response.data)
-            return result;
-            // return error
+            // let result = cbor.decode(error.response.data)
+            // return result;
+            return error
         });
         return reponse;
     }
