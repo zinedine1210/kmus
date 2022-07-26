@@ -55,9 +55,13 @@
             "helper":"Alamat harus diisi"
         },
         {
-            "text":"KTP / SIM",
-            "placeholder":"Masukan nomer KTP atau SIM",
-            "helper":"KTP / SIM harus diisi, contoh: 321108xxxxxxxxxx"
+            "text":"Masukan No KTP",
+            "text2":"Masukan No SIM",
+            "placeholder":"Ketikan nomer KTP anda disini",
+            "placeholder2":"Ketikan nomer SIM anda disini",
+            "placeholder3":"Pilih KTP atau SIM terlebih dahulu",
+            "helper":"KTP harus diisi, contoh: 321108xxxxxxxxxx",
+            "helper2":"SIM harus diisi, contoh: 122003xxxxxxxx"
         },
         {
             "text":"Tempat",

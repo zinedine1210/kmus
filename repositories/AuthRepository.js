@@ -5,12 +5,8 @@ class AuthRepository {
     async postRegister(params) {
         const data = cbor.encode(params)
         const reponse = await Repository.post(
-            `${baseUrl}/auth/register`,
-            data,
-            {
-                headers: params,
-                responseType: "arraybuffer"
-            }
+            `${baseUrl}/auth-public/register`,
+            data
         )
         .then((response) => {
             // console.log(cbor.decode(reponse.data));
@@ -100,20 +96,23 @@ class AuthRepository {
     }
     async updateDataUser(params){
         const data = cbor.encode(params.data)
-        const reponse = await Repository.get(
-            `${baseUrl}/baseuserpublic/${data}`,
+        const reponse = await Repository.put(
+            `${baseUrl}/baseuserpublic`,
+            data,
             { 
-                headers: params.xa, 
-                responseType: "arraybuffer" 
+                headers: params,
+                responseType: "arraybuffer"
             }
         )
         .then((response) => {
             let result = cbor.decode(response.data)
             return result;
+            // return response
         })
         .catch((error) => {
             let result = cbor.decode(error.response.data)
             return result;
+            // return error
         });
         return reponse;
     }

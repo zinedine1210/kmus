@@ -16,7 +16,7 @@ export default function Dashboard() {
         // Cek status user premember atau member
         AuthRepository.getDataUser({XA: getXa}).then(res => {
             // setStatus(res.data.status)
-            console.log(res.data);
+            console.log("", res.data);
         })
     
     },[])
@@ -58,34 +58,59 @@ export default function Dashboard() {
         </div>
         :
         <div className="w-full">
-            <div className="flex items-center justify-center">
+            {/* <div className="flex items-center justify-center">
                 <div className="flex items-center justify-center gap-2">
                     <span className={`${active == 1?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl `}>1</span>
                     <p className="text-sm font-semibold capitalize">Lengkapi data diri anda</p>
-                    <hr className="border border-zinc-300 w-20"/>
+                    <hr className="border border-zinc-300 w-10 lg:w-20"/>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                     <span className={`${active == 2?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl `}>2</span>
                     <p className="text-sm font-semibold capitalize">Upload Foto Anda</p>
-                    <hr className="border border-zinc-300 w-20"/>
+                    <hr className="border border-zinc-300 w-10 lg:w-20"/>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                     <span className={`${active == 3?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl `}>3</span>
-                    <div className="flex items-center gap-2">
-                        <p className="text-sm font-semibold capitalize inline-block">Verifikasi dari Admin</p>
-                        <p className="text-sm font-semibold capitalize inline-block">Verifikasi dari Admin</p>
+                    <div className="flex items-center gap-2 justify-center">
+                        <p className="text-sm font-semibold capitalize inline">Verifikasi dari Admin</p>
                     </div>
                 </div>
+            </div> */}
+
+            <div className="flex items-center justify-center">
+                <div className="flex items-center gap-2">
+                    <span className={`${active == 1?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl`}>
+                        1
+                    </span>
+                    <span className="text-sm font-semibold">Lengkapi Data Diri Anda</span>
+                    <hr className="w-20 border-2 border-gray-400"/>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <span className={`${active == 2?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl`}>
+                        2
+                    </span>
+                    <span className="text-sm font-semibold">Upload Foto Anda</span>
+                    <hr className="w-20 border-2 border-gray-400"/>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <span className={`${active == 3?"ring-green-500":"ring-zinc-200"} bg-white ring-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-2xl`}>
+                        3
+                    </span>
+                    <div className="text-sm font-semibold">
+                        <span className="block">Verifikasi Oleh Admin</span>
+                        <span className="block">Bayar Virtual Account</span>
+                    </div>
+                </div>
+
             </div>
 
             {/* STEP 1 */}
             <div className={`${active == 1?"block":"hidden"} bg-white w-full rounded-md mt-5 p-10`}>
                 <h1 className="title">Lengkapi data diri</h1>
                 <Formulir t={t}/>
-                <div className="space-x-2 mt-5">
-                    <button onClick={() => setActive(active - 1)} className="btn-secondary">Sebelumnya</button>
-                    <button className="btn-main" onClick={() => setActive(active + 1)}>selanjutnya</button>
-                </div>
+                
             </div>
 
             {/* STEP 2 */}

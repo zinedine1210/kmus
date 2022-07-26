@@ -3,12 +3,14 @@ import 'antd/dist/antd.css'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import moment from "moment"
+import AuthRepository from "../repositories/AuthRepository"
 
 
 export default function Formulir({t}) {
     const [data, setData] = useState(null)
     const [tempat, setTempat] = useState(null)
     const [bank, setBank] = useState(null)
+    const [ktp, setKtp] = useState(null)
 
     useEffect(() => {
         axios.get("https://dev.farizdotid.com/api/daerahindonesia/provinsi").then(res => {
@@ -22,36 +24,45 @@ export default function Formulir({t}) {
 
 
     const handlerChange = (value, target) => {
-        console.log(data);
         if(data){
-        let obj = {
-            [target]:value
-        }
-        setData(Object.assign(data, obj))
+            let obj = {
+                [target]:value
+            }
+            setData(Object.assign(data, obj))
         }else{
-        let obj = {
-            [target]:value
+            let obj = {
+                [target]:value
+            }
+            setData(obj)
         }
-        setData(obj)
-        }
+    }
+
+
+    const handlerSubmit = (e, value) => {
+        e.preventDefault()
+
+        const getXa = JSON.parse(localStorage.getItem("xa"))
+        AuthRepository.updateDataUser({xa:getXa, data:value}).then(res => {
+            console.log(res)
+        })
     }
   return (
     <article className="block ">
 
         {/* Nama lengkap */}
-        <form onSubmit={(e) => handlerSubmit(e, true)} className="space-y-2 2xl:space-y-4 h-full 2xl:h-full overflow-y-auto">
-        <div className="relative border-2 rounded-lg border-gray-300">
+        <form onSubmit={(e) => handlerSubmit(e, data)} className="space-y-2 2xl:space-y-4 h-full 2xl:h-full overflow-y-auto">
+        {/* <div className="relative border-2 rounded-lg border-gray-300">
             <input type="text" id="namalengkap" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-800 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder:text-transparent placeholder:focus:text-gray-500" name="nama" placeholder={t("form.0.placeholder")} required 
             onChange={(e) => handlerChange(e.target.value, e.target.name)}
             />
             <label htmlFor="namalengkap" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{t("form.0.text")}</label>
             <small className="peer-focus:peer-invalid:text-red-500 peer-focus:peer-invalid:block hidden ml-2 mb-1 font-semibold text-xs">{t("form.0.helper")}</small>
-        </div>
+        </div> */}
 
 
 
         {/* Alamat */}
-        <div className="relative">
+        <div className="relative mt-2">
             <label htmlFor="message" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{t("form.1.text")}</label>
             <textarea id="message" name="alamat" rows="4" className="block p-2.5 w-full text-sm text-gray-900 rounded-lg border-2 dark:text-white border-gray-300 focus:outline-none peer" placeholder={t("form.1.placeholder")} required onChange={(e) => handlerChange(e.target.value, e.target.name)}>
             </textarea>
@@ -73,7 +84,7 @@ export default function Formulir({t}) {
                 id="no_ktp_type"
                 name="no_ktp_type"
                 required
-                onSelect={(e) => handlerChange(e, "no_ktp_type")}
+                onSelect={(e) => {handlerChange(e, "no_ktp_type"); setKtp(e);}}
                 filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
             >
                 <Option value={1}>KTP</Option>
@@ -84,11 +95,11 @@ export default function Formulir({t}) {
 
             </div>
             <div className="relative border-2 rounded-lg border-gray-300 w-11/12">
-                <input type="text" id="ktpsim" disabled={data ? data.no_ktp_type ? false:true:true} className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-800 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder:text-transparent placeholder:focus:text-gray-500" placeholder={data ? data.no_ktp_type ? data.no_ktp_type == "1" ? "Ketikan no KTP Anda" : "Ketikan no SIM Anda" :"Pilih" :""} required name="no_ktp" onChange={(e) => handlerChange(e.target.value, e.target.name)} />
+                <input type="text" id="ktpsim" disabled={ktp ? false:true} className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-800 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder:text-transparent placeholder:focus:text-gray-500" placeholder={"Ketikan disini"} required name="no_ktp" onChange={(e) => handlerChange(e.target.value, e.target.name)} />
 
 
-                <label htmlFor="ktpsim" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{data ? data.no_ktp_type ? data.no_ktp_type == "1" ? "Masukan no KTP Anda" : "Masukan no SIM Anda" :"Pilih" :""}</label>
-                <small className="peer-focus:peer-invalid:text-red-500 peer-focus:peer-invalid:block hidden ml-2 mb-1 font-semibold text-xs">{t("form.2.helper")}</small>
+                <label htmlFor="ktpsim" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{ktp ? ktp == 1 ? t("form.2.placeholder"):t("form.2.placeholder2") : t("form.2.placeholder3")}</label>
+                <small className="peer-focus:peer-invalid:text-red-500 peer-focus:peer-invalid:block hidden ml-2 mb-1 font-semibold text-xs">{ktp ? ktp == 1 ? t("form.2.helper"):t("form.2.helper2") : ""}</small>
             </div>
         </div>
 
@@ -126,15 +137,6 @@ export default function Formulir({t}) {
         </div>
 
 
-        {/* Pekerjaan */}
-        <div className="relative border-2 rounded-lg border-gray-300">
-            <input type="text" id="pekerjaan" name="pekerjaan" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-800 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder:text-transparent placeholder:focus:text-gray-500" placeholder={t("form.5.placeholder")} required 
-            onChange={(e) => handlerChange(e.target.value, e.target.name)}/>
-            <label htmlFor="pekerjaan" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{t("form.5.text")}</label>
-            <small className="peer-focus:peer-invalid:text-red-500 peer-focus:peer-invalid:block hidden ml-2 mb-1 font-semibold text-xs">{t("form.5.helper")}</small>
-        </div>
-
-
 
         {/* NO HP dan EMAIL */}
         <div className="flex items-center justify-center gap-2">
@@ -148,11 +150,19 @@ export default function Formulir({t}) {
             </div>
 
 
+            {/* Pekerjaan */}
             <div className="relative border-2 rounded-lg border-gray-300 w-1/2">
+                <input type="text" id="pekerjaan" name="pekerjaan" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-800 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder:text-transparent placeholder:focus:text-gray-500" placeholder={t("form.5.placeholder")} required 
+                onChange={(e) => handlerChange(e.target.value, e.target.name)}/>
+                <label htmlFor="pekerjaan" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{t("form.5.text")}</label>
+                <small className="peer-focus:peer-invalid:text-red-500 peer-focus:peer-invalid:block hidden ml-2 mb-1 font-semibold text-xs">{t("form.5.helper")}</small>
+            </div>
+
+            {/* <div className="relative border-2 rounded-lg border-gray-300 w-1/2">
                 <input type="email" id="email" name="email" onChange={(e) => handlerChange(e.target.value, e.target.name)} className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-800 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder:text-transparent placeholder:focus:text-gray-500" placeholder={t("form.7.placeholder")} required />
                 <label htmlFor="email" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{t("form.7.text")}</label>
                 <small className="peer-focus:peer-invalid:text-red-500 peer-focus:peer-invalid:block hidden ml-2 mb-1 font-semibold text-xs">{t("form.7.helper")}</small>
-            </div>
+            </div> */}
         </div>
 
 
@@ -218,6 +228,12 @@ export default function Formulir({t}) {
 
             <label htmlFor="bank" className="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark px-2 peer-focus:px-2 peer-focus:text-gray-800 dark:peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 dark:text-white">{t("form.13.text")}</label>
             </div>
+        </div>
+
+
+
+        <div className="space-x-2 mt-10">
+            <button className="btn-main">Selanjutnya</button>
         </div>
         
         </form>

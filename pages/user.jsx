@@ -40,7 +40,7 @@ export default function user() {
 
     // }
   return (
-    <Layout title={"Edit User"} desc="Halaman Edit User">
+    <Layout title={"Edit User"} desc="Halaman Edit User" nav={"Profile"}>
         <article className="block bg-white w-full p-5 relative">
             <h1 className="title">Edit User</h1>
 

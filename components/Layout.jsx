@@ -5,11 +5,13 @@ import { useEffect, useState } from "react"
 import AuthRepository from "../repositories/AuthRepository"
 import Seo from "../public/seo"
 import Loading from "./Loading"
+import Link from "next/link"
 
 
 export default function Layout({children, title, desc, nav}) {
     const [active, setActive] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [user, setUser] = useState(null)
     const Router = useRouter()
     const path = Router.asPath
     const navbar = () => {
@@ -32,6 +34,11 @@ export default function Layout({children, title, desc, nav}) {
                 Router.push(path)
                 setLoading(true)
             }
+        })
+
+
+        AuthRepository.getDataUser({XA:getXa}).then(res => {
+            setUser(res.data)
         })
     }, [path])
 
@@ -67,7 +74,11 @@ export default function Layout({children, title, desc, nav}) {
 
                 </button>
                 <div class="relative hidden lg:block">
-                    <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt=""/>
+                    <Link href={"/user"}>
+                        <span className="cursor-pointer rounded-full w-10 h-10 bg-slate-600 flex items-center justify-center text-white font-semibold text-2xl">
+                            {user ? user.email.charAt(0) :""}
+                        </span>
+                    </Link>
                     <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
                 </div>
             </div>

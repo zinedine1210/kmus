@@ -11,7 +11,7 @@ import AuthRepository from '../repositories/AuthRepository';
 
 
 
-export default function coba() {
+export default function Home() {
   const {t} = useTranslation("common")
   const [mounted, setMounted] = useState(false)
   const [active, setActive] = useState(1)
